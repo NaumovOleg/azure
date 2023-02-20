@@ -6,11 +6,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk",
     "dev": "nodemon --watch \"*.ts\" --exec \"ts-node\" test/index.ts",
-    "deploy": "cdk deploy --profile oleg",
-    "destroy": "cdk destroy --profile oleg"
+    "deploy": "func azure functionapp publish lesson-app"
   },
   "devDependencies": {
     "@types/node": "^18.14.0",
