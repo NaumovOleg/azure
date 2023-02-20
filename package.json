@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@azure/functions": "^3.5.0",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "ts-loader": "^9.4.2"
   }
 }
