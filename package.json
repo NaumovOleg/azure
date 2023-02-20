@@ -8,7 +8,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "dev": "nodemon --watch \\\\\\\\\\\\\\\"*.ts\\\\\\\\\\\\\\\" --exec \\\\\\\\\\\\\\\"ts-node\\\\\\\\\\\\\\\" test/index.ts",
+    "dev": "nodemon --watch \"*.ts\" --exec \"ts-node\" test/index.ts",
     "deploy": "cdk deploy --profile oleg",
     "destroy": "cdk destroy --profile oleg"
   },
