@@ -1,0 +1,22 @@
+az account set --subscription "35akss-subscription-id"
+Create a Service Principal
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+
+
+{
+  "appId": "852621f4-e512-43ad-aa1d-1c8ef67174a2",
+  "displayName": "azure-cli-2023-02-22-08-53-45",
+  "password": "SlU8Q~n-qXAHC6_IixvwQzX6~ZmbPjcUK4s78b06",
+  "tenant": "e3cc5eef-b2b3-46b7-873e-67da94646a75"
+}
+
+
+export ARM_CLIENT_ID="<APPID_VALUE>"
+ export ARM_CLIENT_SECRET="<PASSWORD_VALUE>"
+ export ARM_SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+ export ARM_TENANT_ID="<TENANT_VALUE>"
+
+export ARM_CLIENT_ID="852621f4-e512-43ad-aa1d-1c8ef67174a2"
+ export ARM_CLIENT_SECRET="SlU8Q~n-qXAHC6_IixvwQzX6~ZmbPjcUK4s78b06"
+ export ARM_SUBSCRIPTION_ID="ff3fd8a8-04ee-41dd-8b5f-ac85fd217054"
+ export ARM_TENANT_ID="e3cc5eef-b2b3-46b7-873e-67da94646a75"
