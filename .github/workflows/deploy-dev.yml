@@ -5,10 +5,12 @@ on:
     branches:
       - develop
 env:
-  APP_NAME: myContainer
-  RESOURCE_GROUP: keeperoleg26_rg
-  ACR_NAME: olehqwefdvxvgaf
-  ENVIRONMENT:  test-env
+  ACR_NAME: testacrnamefrfdwedwe
+  RESOURCE_GROUP: oleg-rg
+  APP_NAME: api
+  ENVIRONMENT: new-environment
+  LOCATION: westeurope
+  SUBSCRIPTION_ID: ff3fd8a8-04ee-41dd-8b5f-ac85fd217054
 
 jobs:
   build:
@@ -28,13 +30,8 @@ jobs:
         uses: azure/container-apps-deploy-action@v0
         with:
           appSourcePath: ${{ github.workspace }}
-          acrName: ${{ env.ACR_NAME }}
-
-          containerAppName: ${{ env.APP_NAME }}
-          resourceGroup:  ${{ env.RESOURCE_GROUP }}
-          containerAppEnvironment:  ${{ env.ENVIRONMENT }}
-          image: "${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }"
-          targetPort: 3000
-          location: westeurope
+          acrName:  ${{ env.ACR_NAME }}
+          containerAppName: ${{env.APP_NAME}}
+          resourceGroup:  ${{env.RESOURCE_GROUP}}
 
 
