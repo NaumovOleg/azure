@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - develop
+env:
+  APP_NAME: myContainer
+  RESOURCE_GROUP: keeperoleg26_rg
+  ACR_NAME: olehqwefdvxvgaf
+  ENVIRONMENT:  test-env
 
 jobs:
   build:
@@ -23,11 +28,13 @@ jobs:
         uses: azure/container-apps-deploy-action@v0
         with:
           appSourcePath: ${{ github.workspace }}
-          acrName: olehqwefdvxvgaf
-          containerAppName: myContainer
-          resourceGroup: keeperoleg26_rg
+          acrName: ${{ env.ACR_NAME }}
+
+          containerAppName: ${{ env.APP_NAME }}
+          resourceGroup:  ${{ env.RESOURCE_GROUP }}
+          containerAppEnvironment:  ${{ env.ENVIRONMENT }}
+          image: "${{ env.ACR_NAME }}.azurecr.io/${{ env.APP_NAME }"
           targetPort: 3000
           location: westeurope
-          ingres: external
 
 
