@@ -1,19 +1,16 @@
 import { Construct } from 'constructs';
-import { AppServicePlan } from '../.gen/providers/azurerm/app-service-plan';
+import { ApplicationInsights } from '../.gen/providers/azurerm/application-insights';
 import { ResourceGroup } from '../.gen/providers/azurerm/resource-group';
 
 class AppServicePlanConstruct extends Construct {
-  plan: AppServicePlan;
+  ins: ApplicationInsights;
   constructor(scope: Construct, id: string, rg:ResourceGroup) {
     super(scope, id);
-    this.plan = new AppServicePlan(this, 'cdktf-asp', {
-      kind: 'Linux',
-      reserved: true,
+    this.ins = new ApplicationInsights(this, 'app-insights', {
       resourceGroupName: rg.name,
       location: rg.location,
-      name: 'cdktf-demo-plan',
-      sku: { size: 'S1', tier: 'Standard' },
-      
+      name: 'insights',
+      applicationType: 'Node.JS'
     });
   }
 }

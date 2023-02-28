@@ -24,13 +24,18 @@
     "stripInternal": true,
     "target": "ES2018",
     "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+
   },
   "include": [
     "**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "cdktf.out"
+    "cdktf.out",
+    ".gen"
   ]
 }
