@@ -3,10 +3,10 @@ import { StorageAccount } from '../.gen/providers/azurerm/storage-account';
 import { ResourceGroup } from '../.gen/providers/azurerm/resource-group';
 
 class StorageAccountConstruct extends Construct {
-  sta: StorageAccount;
+  storageAccount: StorageAccount;
   constructor(scope: Construct, id: string, rg: ResourceGroup) {
     super(scope, id);
-    this.sta = new StorageAccount(this, 'storage-account-dmcbejkcce', {
+    this.storageAccount = new StorageAccount(this, 'storage-account-dmcbejkcce', {
       name: 'sxdcfgvhjklmkjhv',
       location: rg.location,
       accountReplicationType: 'LRS',

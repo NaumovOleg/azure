@@ -3,10 +3,10 @@ import { ApplicationInsights } from '../.gen/providers/azurerm/application-insig
 import { ResourceGroup } from '../.gen/providers/azurerm/resource-group';
 
 class AppServicePlanConstruct extends Construct {
-  ins: ApplicationInsights;
+  insights: ApplicationInsights;
   constructor(scope: Construct, id: string, rg:ResourceGroup) {
     super(scope, id);
-    this.ins = new ApplicationInsights(this, 'app-insights', {
+    this.insights = new ApplicationInsights(this, 'app-insights', {
       resourceGroupName: rg.name,
       location: rg.location,
       name: 'insights',

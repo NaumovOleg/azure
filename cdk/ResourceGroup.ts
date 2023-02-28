@@ -6,7 +6,7 @@ class ResourceGroupConstruct extends Construct {
   constructor(scope: Construct, id: string) {
     super(scope, id);
     this.rg = new ResourceGroup(this, 'rg-example', {
-      name: 'example-resource-group',
+      name: 'rg-kith',
       location: 'northeurope'
     });
   }

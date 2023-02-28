@@ -9,17 +9,16 @@ import { AppServicePlan } from '../.gen/providers/azurerm/app-service-plan';
 import { ApplicationInsights } from '../.gen/providers/azurerm/application-insights';
 
 class SharedStack extends Construct {
-  rg: ResourceGroup;
-  sta: StorageAccount;
+  resourceGroup: ResourceGroup;
+  storageAccount: StorageAccount;
   plan: AppServicePlan;
-  ins:ApplicationInsights;
+  insights:ApplicationInsights;
   constructor(scope: Construct, id: string) {
     super(scope, id);
-    this.rg = new ResourceGroupConstruct(this, 'resource-gr').rg;
-    this.sta = new StorageAccountConstruct(this, 'storage-account', this.rg).sta;
-    this.plan = new AppServicePlanConstruct(this, 'plan', this.rg).plan;
-    this.ins = new Insights(this, 'insights', this.rg).ins;
-
+    this.resourceGroup = new ResourceGroupConstruct(this, 'resource-gr').rg;
+    this.storageAccount = new StorageAccountConstruct(this, 'storage-account', this.resourceGroup).storageAccount;
+    this.plan = new AppServicePlanConstruct(this, 'plan', this.resourceGroup).plan;
+    this.insights = new Insights(this, 'insights', this.resourceGroup).insights;
   }
 }
 
