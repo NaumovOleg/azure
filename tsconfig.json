@@ -40,6 +40,7 @@
     "cdktf.out",
     ".gen",
     "main.ts",
-    "cdk"
+    "cdk",
+    "dist"
   ]
 }
