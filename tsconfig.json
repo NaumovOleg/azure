@@ -33,7 +33,8 @@
   "include": [
     "**/*.ts",
     "host.json",
-    "local.settings.json"
+    "local.settings.json",
+    "auth.json"
   ],
   "exclude": [
     "node_modules",
