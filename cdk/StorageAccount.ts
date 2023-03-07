@@ -12,6 +12,7 @@ class StorageAccountConstruct extends Construct {
       accountReplicationType: 'LRS',
       accountTier: 'Standard',
       resourceGroupName: rg.name,
+      staticWebsite: { indexDocument: 'index.html' }
     });
   }
 }

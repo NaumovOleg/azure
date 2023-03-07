@@ -1,4 +1,4 @@
-name: Deploy Node.js project to function app
+name: Development deploy
 
 on:
   push:
@@ -9,9 +9,10 @@ env:
   AZURE_FUNCTIONAPP_NAME: kith-function-app    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
+  RESOURCE_GROUP: rg-kith
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-server:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout GitHub action'
@@ -37,5 +38,23 @@ jobs:
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 
+  deploy-front:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Upload to blob storage
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az storage blob upload-batch --account-name staticsidrvymiuyt --auth-mode key -d '$web' -s static/ --overwrite=true
+
+      # Azure logout
+      - name: logout
+        run: |
+          az logout
+        if: always()
 
