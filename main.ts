@@ -4,6 +4,7 @@ import { App, TerraformStack, } from 'cdktf';
 
 import SharedStack from './cdk/SharedStack';
 import Function from './cdk/FunctionApp';
+import Mongo from './cdk/Mongo';
 
 
 const subscriptionId = 'ff3fd8a8-04ee-41dd-8b5f-ac85fd217054';
@@ -14,6 +15,7 @@ class MyStack extends TerraformStack {
     new AzurermProvider(this, 'AzureRm', { subscriptionId,features: {} });
     const  shared = new SharedStack(this, 'shared-cdk');
     new Function(this, 'functions-cdk', shared);
+    new Mongo(this, 'mongo-cdk', shared);
   }
 }
 
