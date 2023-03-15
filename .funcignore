@@ -11,3 +11,12 @@ node_modules/typescript/
 stack
 jest.config
 main.ts
+__tests__
+.github
+Auth
+cdk
+static
+.eslintignore
+.eslint
+.npmrc
+
