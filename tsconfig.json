@@ -27,6 +27,7 @@
     "rootDir": ".",
     "outDir": "dist",
     "sourceMap": false,
+    
   },
   "include": [
     "**/*.ts",
@@ -35,10 +36,10 @@
     "api",
     "Auth",
     "User",
-    "*/function.json"
+    "*/function.json",
+    "package.json"
   ],
   "exclude": [
-    "node_modules",
     "cdktf.out",
     ".gen",
     "main.ts",
@@ -46,4 +47,5 @@
     "dist",
     
   ]
+
 }

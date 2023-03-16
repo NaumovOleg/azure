@@ -10,6 +10,8 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '18.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
   RESOURCE_GROUP: my-test-group
+  BUILD_FOLDER: build
+  FUNC_FOLDERS: User Auth
 
 jobs:
   build-and-deploy-server:
@@ -27,15 +29,17 @@ jobs:
         shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          yarn install
-          
+          yarn install 
+                   
           yarn  build
+          mkdir build
+          mv node_modules dist host.json ${{env.FUNC_FOLDERS}} ${{env.BUILD_FOLDER}}
           popd
       - name: 'Run Azure Functions action'
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: ${{ env.BUILD_FOLDER }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 
   # deploy-front:
