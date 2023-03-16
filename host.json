@@ -8,7 +8,7 @@
       }
     }
   },
-  "watchDirectories": [ "User", "Profile" ],
+  "watchDirectories": [ "User", "Auth", "shared" ],
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.*, 4.0.0)"

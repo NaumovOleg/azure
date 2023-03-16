@@ -38,23 +38,23 @@ jobs:
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
 
-  deploy-front:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+  # deploy-front:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: azure/login@v1
+  #       with:
+  #         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Upload to blob storage
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az storage blob upload-batch --account-name staticsidrvymiuyt --auth-mode key -d '$web' -s static/ --overwrite=true
+  #     - name: Upload to blob storage
+  #       uses: azure/CLI@v1
+  #       with:
+  #         inlineScript: |
+  #           az storage blob upload-batch --account-name staticsidrvymiuyt --auth-mode key -d '$web' -s static/ --overwrite=true
 
-      # Azure logout
-      - name: logout
-        run: |
-          az logout
-        if: always()
+  #     # Azure logout
+  #     - name: logout
+  #       run: |
+  #         az logout
+  #       if: always()
 

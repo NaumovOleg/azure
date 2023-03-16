@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "charset": "utf8",
     "declaration": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
@@ -28,13 +27,15 @@
     "rootDir": ".",
     "outDir": "dist",
     "sourceMap": false,
-
   },
   "include": [
     "**/*.ts",
     "host.json",
     "local.settings.json",
-    "auth.json"
+    "auth.json",
+    "api",
+    "Auth",
+    "User"
   ],
   "exclude": [
     "node_modules",
@@ -42,6 +43,7 @@
     ".gen",
     "main.ts",
     "cdk",
-    "dist"
+    "dist",
+    
   ]
 }
