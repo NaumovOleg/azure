@@ -10,6 +10,8 @@
     "synth": "cdktf synth",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
+    "start:host": "func start",
+    "start": "npm run start:host & npm run watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",

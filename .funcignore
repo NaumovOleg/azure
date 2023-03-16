@@ -7,7 +7,7 @@
 local.settings.json
 test
 __tests__
-terraform*
+terraform.*
 getting_started.md
 node_modules/@types/
 node_modules/azure-functions-core-tools/
@@ -24,4 +24,5 @@ cdk
 .npmrc
 .tsconfig
 setup
+help
 

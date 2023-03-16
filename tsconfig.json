@@ -31,11 +31,11 @@
   "include": [
     "**/*.ts",
     "host.json",
-    "local.settings.json",
     "auth.json",
     "api",
     "Auth",
-    "User"
+    "User",
+    "*/function.json"
   ],
   "exclude": [
     "node_modules",
