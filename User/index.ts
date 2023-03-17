@@ -1,13 +1,16 @@
-import { AzureFunction, Context, HttpRequest } from '@azure/functions';
-import { config } from  'dotenv';
-import connection  from '@shared/dal/connection';
-import { User } from '@shared/dal/models';
 
-config();
+import 'module-alias/register'; 
+
+import { AzureFunction, Context, HttpRequest } from '@azure/functions';
+
+import { User } from '@models';
+import connection  from '@/shared/database/connection';
+import  { env } from  '@env';
+
 
 const httpTrigger: AzureFunction = async function (context: Context, _: HttpRequest): Promise<void> {
-    
-  console.log('ddddddddddddddddddddddddddddddddddaaaaaaddddd',process.env); 
+  console.log(process.env.MONGO_URL, env.MONGO_URL);
+
   await connection.open();
 
 
@@ -18,7 +21,7 @@ const httpTrigger: AzureFunction = async function (context: Context, _: HttpRequ
   await connection.close();
 
   context.res = {
-    body: user
+    body: 'user'
   };
 
 };

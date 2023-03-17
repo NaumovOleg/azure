@@ -5,13 +5,18 @@
   "types": "main.ts",
   "license": "MPL-2.0",
   "private": true,
+  "_moduleAliases": {
+    "@": "dist",
+    "@models": "dist/shared/database/models/index.js",
+    "@env": "dist/env.js"
+  },
   "scripts": {
     "build": "tsc",
     "synth": "cdktf synth",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
-    "start:host": "func start",
-    "start": "npm run start:host & npm run watch",
+    "start:host": "func start --script-root dist  --typescript",
+    "start": "npm run start:host  & npm run watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
@@ -24,8 +29,10 @@
   "dependencies": {
     "@azure/functions": "^3.5.0",
     "@azure/static-web-apps-cli": "^1.0.6",
-    "dotenv": "^16.0.3",
-    "mongoose": "^7.0.1"
+    "module-alias": "^2.2.2",
+    "mongoose": "^7.0.1",
+    "ts-dotenv": "^0.9.1",
+    "tsconfig-paths": "^4.1.2"
   },
   "devDependencies": {
     "@cdktf/provider-azurerm": "^5.0.6",

@@ -24,31 +24,25 @@
     "target": "ES2018",
     "incremental": true,
     "skipLibCheck": true,
-    "rootDir": ".",
+    "rootDir": "./",
+    "baseUrl": ".",
     "outDir": "dist",
     "sourceMap": false,
-  "paths": {
-    "@shared/*":["./shared/*"]
-  }
-    
+    "paths": {
+      "@/*": [
+        "./*",
+      ],
+      "@models":["./shared/database/models/index.ts"],
+      "@env":["./env.ts"]
+    },
   },
   "include": [
-    "**/*.ts",
     "host.json",
     "auth.json",
-    "api",
     "Auth",
     "User",
     "*/function.json",
-    "package.json"
-  ],
-  "exclude": [
-    "cdktf.out",
-    ".gen",
-    "main.ts",
-    "cdk",
-    "dist",
-    "__tests__"
+    "package.json",
+    "env.ts"
   ]
-
 }

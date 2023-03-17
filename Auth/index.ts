@@ -1,11 +1,9 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-  const buffer = Buffer.from(req.headers['x-ms-client-principal'], 'base64');
-  const user = JSON.parse(buffer.toString('ascii'));
+const httpTrigger: AzureFunction = async function (context: Context, _: HttpRequest): Promise<void> {
 
-  const email = user.claims.find((c:any) => c.typ === 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress').val;
-  const nickname = user.claims.find((c:any)=> c.typ === 'nickname').val;
+  const email = 'dddasss';
+  const nickname = 'ddddddddddddddd';
 
   context.res = {
     status: 200,

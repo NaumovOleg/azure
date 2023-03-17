@@ -1,6 +1,7 @@
 {
   "IsEncrypted": false,
   "Values": {
+    "MONGO_URL":"mongodb://cosmos-account-my-test-group:oG7GH2J7Ba9ifGhqmbTWuW6BEsMCyPsSfxW03M67cjv18CtABHYYqCfcO4u68q6SeGvfO1MWZuMnACDbsRiUfA==@cosmos-account-my-test-group.mongo.cosmos.azure.com:10255/cosmos-database?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@cosmos-account-my-test-group@",
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=sxdcfgvhjklmkjhv;AccountKey=9Jsh7vx5/6+6CYbVALcjcjB/CDL2J4sTWWeCS7nxJrOgVql4aAW3ZTKifgLAutC2ffg5qA7mtntY+AStmhVYXw==;EndpointSuffix=core.windows.net"
   }
