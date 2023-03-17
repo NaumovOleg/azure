@@ -1,7 +1,7 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 import { config } from  'dotenv';
-import connection  from '../shared/dal/connection';
-import { User } from '../shared/dal/models';
+import connection  from '@shared/dal/connection';
+import { User } from '@shared/dal/models';
 
 config();
 

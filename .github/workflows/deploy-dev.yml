@@ -33,7 +33,8 @@ jobs:
                    
           yarn  build
           mkdir build
-          mv node_modules dist host.json ${{env.FUNC_FOLDERS}} ${{env.BUILD_FOLDER}}
+          mv package.json dist host.json ${{env.FUNC_FOLDERS}} ${{env.BUILD_FOLDER}}
+          cd  ./${{env.BUILD_FOLDER}} $$ yarn install --prod  && cd ../
           popd
       - name: 'Run Azure Functions action'
         uses: Azure/functions-action@v1

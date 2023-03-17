@@ -6,7 +6,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2018"
+      "ES2022"
     ],
     "module": "CommonJS",
     "noEmitOnError": true,
@@ -27,6 +27,9 @@
     "rootDir": ".",
     "outDir": "dist",
     "sourceMap": false,
+  "paths": {
+    "@shared/*":["./shared/*"]
+  }
     
   },
   "include": [
