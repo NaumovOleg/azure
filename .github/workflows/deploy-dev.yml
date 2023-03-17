@@ -29,12 +29,11 @@ jobs:
         shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          yarn install 
+          yarn install --prod
                    
           yarn  build
           mkdir build
-          mv package.json dist host.json ${{env.FUNC_FOLDERS}} ${{env.BUILD_FOLDER}}
-          cd  ./${{env.BUILD_FOLDER}} $$ yarn install --prod  && cd ../
+          mv node_modules package.json dist host.json ${{env.FUNC_FOLDERS}} ${{env.BUILD_FOLDER}}
           popd
       - name: 'Run Azure Functions action'
         uses: Azure/functions-action@v1

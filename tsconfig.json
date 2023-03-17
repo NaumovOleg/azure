@@ -48,7 +48,7 @@
     "main.ts",
     "cdk",
     "dist",
-    
+    "__tests__"
   ]
 
 }
