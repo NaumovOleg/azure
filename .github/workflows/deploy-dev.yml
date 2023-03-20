@@ -32,7 +32,7 @@ jobs:
           yarn install 
           ls
           yarn  build  
-          mv node_modules ${{env.DIST_FOLDER}}
+          сd ../${{env.DIST_FOLDER}} && yarn install --prod
           popd
       - name: 'Run Azure Functions action'
         uses: Azure/functions-action@v1
