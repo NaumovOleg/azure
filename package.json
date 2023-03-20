@@ -6,19 +6,19 @@
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "prebuild":"rm -rf dist ",
+    "prebuild": "rm -rf dist ",
     "build": "tsc",
-    "postbuild":" tspath -f --dry",
+    "postbuild": "resolve-tspaths",
     "synth": "cdktf synth",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
     "startFunc": "func start --script-root dist  --typescript",
-    "start": "startFunc  & npm run watch",
+    "start": "yarn startFunc  & npm run watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
-    "startDist":"cd ./dist && func start"
+    "startDist": "cd ./dist && func start"
   },
   "engines": {
     "node": ">=14.0"
@@ -28,6 +28,7 @@
     "@azure/static-web-apps-cli": "^1.0.6",
     "module-alias": "^2.2.2",
     "mongoose": "^7.0.1",
+    "resolve-tspaths": "^0.8.8",
     "ts-dotenv": "^0.9.1",
     "tsconfig-paths": "^4.1.2",
     "tspath": "^2.6.8"
