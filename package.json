@@ -6,17 +6,18 @@
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf ./dist && tsc && tspath -f",
+    "prebuild":"rm -rf dist ",
+    "build": "tsc",
+    "postbuild":" tspath -f",
     "synth": "cdktf synth",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
-    "start:host": "func start --script-root dist  --typescript",
-    "start": "npm run start:host  & npm run watch",
+    "startFunc": "func start --script-root dist  --typescript",
+    "start": "startFunc  & npm run watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
-    "dev": "yarn watch && func start",
     "startDist":"cd ./dist && func start"
   },
   "engines": {
