@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          yarn install
+          yarn install 
           yarn  build  
           mv node_modules ${{env.DIST_FOLDER}}
           popd

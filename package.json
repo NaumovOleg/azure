@@ -16,7 +16,8 @@
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
-    "dev": "yarn watch && func start"
+    "dev": "yarn watch && func start",
+    "startDist":"cd ./dist && func start"
   },
   "engines": {
     "node": ">=14.0"
