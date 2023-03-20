@@ -1,11 +1,10 @@
 
-import 'module-alias/register'; 
 
 import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 
-import { User } from '@models';
+import { User } from '@models/index';
 import connection  from '@/shared/database/connection';
-import  { env } from  '@env';
+import  { env } from  '@/shared/env';
 
 
 const httpTrigger: AzureFunction = async function (context: Context, _: HttpRequest): Promise<void> {

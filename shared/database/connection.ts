@@ -1,7 +1,7 @@
 
 
 import  mongoose  from 'mongoose';
-import { env } from '../../env';
+import { env } from '../env';
 export default  {
   open: async ()=>{
     return mongoose.connect(env.MONGO_URL);

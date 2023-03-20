@@ -1,5 +1,5 @@
 Arguments: 
-  /home/oleg/.nvm/versions/node/v18.14.0/bin/node /home/oleg/.nvm/versions/node/v18.14.0/bin/yarn start
+  /home/oleg/.nvm/versions/node/v18.14.0/bin/node /home/oleg/.nvm/versions/node/v18.14.0/bin/yarn add tspath
 
 PATH: 
   /home/oleg/.nvm/versions/node/v18.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
@@ -14,12 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /home/oleg/Projects/azure/package.json: Unexpected string in JSON at position 206
-      at JSON.parse (<anonymous>)
-      at /home/oleg/.nvm/versions/node/v18.14.0/lib/node_modules/yarn/lib/cli.js:1629:59
-      at Generator.next (<anonymous>)
-      at step (/home/oleg/.nvm/versions/node/v18.14.0/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /home/oleg/.nvm/versions/node/v18.14.0/lib/node_modules/yarn/lib/cli.js:321:13
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 
 npm manifest: 
   {
@@ -29,18 +25,19 @@ npm manifest:
     "types": "main.ts",
     "license": "MPL-2.0",
     "private": true,
-    "_moduleAliases":{
-      "@models":  "./shared/database/models/index.ts"
-      "@models":  "./shared/database/models/index.ts"
-  
+    "_moduleAliases": {
+       "@": ".",
+    "@models": "./shared/database/models/index.js",
+    "@env": "./env.js"
     },
+  
     "scripts": {
       "build": "tsc",
       "synth": "cdktf synth",
       "compile": "tsc --pretty",
       "watch": "tsc -w",
-      "start:host": "func start",
-      "start": "npm run start:host & npm run watch",
+      "start:host": "func start --script-root dist  --typescript",
+      "start": "npm run start:host  & npm run watch",
       "test": "jest",
       "test:watch": "jest --watch",
       "upgrade": "npm i cdktf@latest cdktf-cli@latest",
@@ -53,8 +50,10 @@ npm manifest:
     "dependencies": {
       "@azure/functions": "^3.5.0",
       "@azure/static-web-apps-cli": "^1.0.6",
-      "dotenv": "^16.0.3",
-      "mongoose": "^7.0.1"
+      "module-alias": "^2.2.2",
+      "mongoose": "^7.0.1",
+      "ts-dotenv": "^0.9.1",
+      "tsconfig-paths": "^4.1.2"
     },
     "devDependencies": {
       "@cdktf/provider-azurerm": "^5.0.6",
@@ -2220,7 +2219,7 @@ Lockfile:
     dependencies:
       is-obj "^2.0.0"
   
-  dotenv@^16.0.0, dotenv@^16.0.3:
+  dotenv@^16.0.0:
     version "16.0.3"
     resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
     integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
@@ -3906,6 +3905,11 @@ Lockfile:
     dependencies:
       minimist "^1.2.6"
   
+  module-alias@^2.2.2:
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/module-alias/-/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
+    integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
+  
   mongodb-connection-string-url@^2.6.0:
     version "2.6.0"
     resolved "https://registry.yarnpkg.com/mongodb-connection-string-url/-/mongodb-connection-string-url-2.6.0.tgz#57901bf352372abdde812c81be47b75c6b2ec5cf"
@@ -4801,6 +4805,11 @@ Lockfile:
     dependencies:
       ansi-regex "^5.0.1"
   
+  strip-bom@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
+    integrity sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA==
+  
   strip-bom@^4.0.0:
     version "4.0.0"
     resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-4.0.0.tgz#9c3505c1db45bcedca3d9cf7a16f5c5aa3901878"
@@ -4955,6 +4964,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
     integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
   
+  ts-dotenv@^0.9.1:
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/ts-dotenv/-/ts-dotenv-0.9.1.tgz#71c619c412860b99a4a3fff86cf57abf3579c479"
+    integrity sha512-oTTXmjSMkCIK8d+uKbQnHh7JS9zEYGn3pq7nE0qHVERq+6Mx9wZKcXVAT+7X0qhOWpRz10dqrJCFFcKwunYz5w==
+  
   ts-jest@^29.0.5:
     version "29.0.5"
     resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-29.0.5.tgz#c5557dcec8fe434fcb8b70c3e21c6b143bfce066"
@@ -4997,6 +5011,15 @@ Lockfile:
       make-error "^1.1.1"
       v8-compile-cache-lib "^3.0.1"
       yn "3.1.1"
+  
+  tsconfig-paths@^4.1.2:
+    version "4.1.2"
+    resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-4.1.2.tgz#4819f861eef82e6da52fb4af1e8c930a39ed979a"
+    integrity sha512-uhxiMgnXQp1IR622dUXI+9Ehnws7i/y6xvpZB9IbUVOPy0muvdvgXeZOn88UcGPiT98Vp3rJPTa8bFoalZ3Qhw==
+    dependencies:
+      json5 "^2.2.2"
+      minimist "^1.2.6"
+      strip-bom "^3.0.0"
   
   tslib@^1.10.0, tslib@^1.8.1:
     version "1.14.1"

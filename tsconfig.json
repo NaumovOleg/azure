@@ -21,20 +21,18 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2018",
+    "target": "es5",
     "incremental": true,
     "skipLibCheck": true,
     "rootDir": "./",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "dist",
     "sourceMap": false,
     "paths": {
-      "@/*": [
-        "./*",
-      ],
-      "@models":["./shared/database/models/index.ts"],
-      "@env":["./env.ts"]
-    },
+      "@/*": ["./*"],
+      "@models/*":["./shared/database/models/*"],
+      "@env":["./shared/env"]
+    }
   },
   "include": [
     "host.json",
@@ -43,6 +41,6 @@
     "User",
     "*/function.json",
     "package.json",
-    "env.ts"
+    "shared/env.ts"
   ]
 }

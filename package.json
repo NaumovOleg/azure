@@ -5,13 +5,8 @@
   "types": "main.ts",
   "license": "MPL-2.0",
   "private": true,
-  "_moduleAliases": {
-    "@": "dist",
-    "@models": "dist/shared/database/models/index.js",
-    "@env": "dist/env.js"
-  },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc && tspath -f",
     "synth": "cdktf synth",
     "compile": "tsc --pretty",
     "watch": "tsc -w",
@@ -32,7 +27,8 @@
     "module-alias": "^2.2.2",
     "mongoose": "^7.0.1",
     "ts-dotenv": "^0.9.1",
-    "tsconfig-paths": "^4.1.2"
+    "tsconfig-paths": "^4.1.2",
+    "tspath": "^2.6.8"
   },
   "devDependencies": {
     "@cdktf/provider-azurerm": "^5.0.6",
